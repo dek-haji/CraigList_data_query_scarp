@@ -21,16 +21,35 @@ namespace scaper
             var html = await httpclient.GetStringAsync(url);
             var htmlDocument = new HtmlDocument();
             htmlDocument.LoadHtml(html);
+            var newHtml = html.Contains("Toyota");
+            Console.WriteLine(newHtml);
+            if(html.Contains("Car"))
+            {
+                Console.WriteLine("yeah we got it");
+            }else
+            {
+                Console.WriteLine("nope");
+            }
+           
             var ProductHtml = htmlDocument.DocumentNode.Descendants("ul")
                 .Where(node => node.GetAttributeValue("class", "")
                 .Equals("rows")).ToList();
 
 
-            foreach (var Products in ProductHtml[0].InnerHtml)
-            {
-                Console.WriteLine($" this is all products{Products.ToString()}");
+            //foreach (var Products in ProductHtml[0].InnerHtml)
+            //{
+            //    var newTest = Products.ToString();
+            //    if (newTest.Equals("Military"))
+            //    {
+            //        Console.WriteLine("yeah we got it.");
+            //    }else
+            //    {
+            //        Console.WriteLine("nope");
+            //    }
+                    
+                //Console.WriteLine($" this is all products{Products.ToString()}");
               
-            };
+            //};
 
             //for(int i = 0; i < ProductHtml.Counts; i++)
             //{
