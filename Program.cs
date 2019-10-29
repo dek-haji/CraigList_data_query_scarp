@@ -24,9 +24,18 @@ namespace scaper
             var ProductHtml = htmlDocument.DocumentNode.Descendants("ul")
                 .Where(node => node.GetAttributeValue("class", "")
                 .Equals("rows")).ToList();
-            //var ProductListItem = ProductHtml[0].Descendants("li")
-            //    .Where(node => node.GetAttributeValue("id", "")
-            //    .Contains("700")).ToList();
+            foreach(HtmlNode Products in  ProductHtml)
+            {
+                Console.WriteLine($" this is all products{Products.ChildNodes.Count}");
+                var newProducts = Products.ChildNodes.Elements();
+                Console.WriteLine($"and this is single product{newProducts.ToList()}");
+
+            };
+
+
+            var ProductListItem = ProductHtml[0].Descendants("li")
+                .Where(node => node.GetAttributeValue("class", "result-row")
+                .Equals("3500")).ToList();
             //var ProductList = ProductHtml[0].Descendants();
             Console.WriteLine();
 
