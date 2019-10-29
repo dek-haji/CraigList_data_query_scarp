@@ -27,8 +27,8 @@ namespace scaper
             foreach(HtmlNode Products in  ProductHtml)
             {
                 Console.WriteLine($" this is all products{Products.ChildNodes.Count}");
-                var newProducts = Products.ChildNodes.Elements();
-                Console.WriteLine($"and this is single product{newProducts.ToList()}");
+                var newProducts = Products.InnerHtml;
+                Console.WriteLine($"and this is single product{newProducts}");
 
             };
 
