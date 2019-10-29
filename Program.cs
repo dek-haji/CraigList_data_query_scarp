@@ -23,10 +23,10 @@ namespace scaper
             htmlDocument.LoadHtml(html);
             var ProductHtml = htmlDocument.DocumentNode.Descendants("ul")
                 .Where(node => node.GetAttributeValue("class", "")
-                .Equals("result-row")).ToList();
-            var ProductListItem = ProductHtml[0].Descendants("li")
-                .Where(node => node.GetAttributeValue("id", "")
-                .Contains("700")).ToList();
+                .Equals("rows")).ToList();
+            //var ProductListItem = ProductHtml[0].Descendants("li")
+            //    .Where(node => node.GetAttributeValue("id", "")
+            //    .Contains("700")).ToList();
             //var ProductList = ProductHtml[0].Descendants();
             Console.WriteLine();
 
