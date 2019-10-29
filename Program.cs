@@ -21,11 +21,12 @@ namespace scaper
             var html = await httpclient.GetStringAsync(url);
             var htmlDocument = new HtmlDocument();
             htmlDocument.LoadHtml(html);
-            var newHtml = html.Contains("Toyota");
-            Console.WriteLine(newHtml);
-            if(html.Contains("Car"))
+            //var newHtml = html.Contains("Toyota");
+            //Console.WriteLine(newHtml);
+            // i can check what strings am looking for
+            if(html.Contains("Nissan"))
             {
-                Console.WriteLine("yeah we got it");
+                Console.WriteLine("yeah this string is here");
             }else
             {
                 Console.WriteLine("nope");
